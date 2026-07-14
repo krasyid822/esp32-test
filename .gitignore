@@ -1,0 +1,19 @@
+# Build directories
+build/
+latex/
+html/
+
+# ESP-IDF specific
+sdkconfig
+sdkconfig.old
+sdkconfig.defaults.esp32*
+dependencies.lock
+
+# VS Code / IDEs
+.vscode/
+.cache/
+.clangd/
+
+# System files
+.DS_Store
+Thumbs.db
