@@ -1,4 +1,4 @@
-#include "freertos/FreeRTOS.h"
+#include "freertos/FreeRTOS.h" // IWYU pragma: keep
 #include "freertos/task.h"
 #include "driver/gpio.h"
 #include "esp_timer.h"
@@ -12,10 +12,7 @@ static const char *TAG = "HC-SR04_Main";
 #define TRIG_PIN    26
 #define ECHO_PIN    27
 
-// Threshold Jarak (dalam cm)c
-#define DIST_TOUCH   4
-#define DIST_CLOSE   15
-#define DIST_MEDIUM  30
+// Threshold Jarak (dalam cm) (DIST thresholds are defined in buzzer.h)
 
 static void init_sensor_gpio(void)
 {
@@ -102,7 +99,7 @@ float get_distance_cm(void)
     return median_of_three(r1, r2, r3);
 }
 
-void app_main(void)
+void hc_sr04_sensor_main(void)
 {
     // Inisialisasi lampu (dari ryg_lamp.c)
     ryg_lamp_init();

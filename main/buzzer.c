@@ -4,17 +4,12 @@
 #include "freertos/task.h"
 #include "esp_log.h"
 
-// Deklarasi fungsi pembacaan jarak dari hc_sr04_sensor.c
-extern float get_distance_cm(void);
-
 static const char *TAG = "Buzzer_Melody";
 
-// Cek apakah kondisi jarak sudah berpindah dari wilayah lampu merah konstan (4cm s.d 15cm)
 static bool should_interrupt(void)
 {
-    float dist = get_distance_cm();
-    // Jika sensor error (dist < 0) atau jarak di luar wilayah merah konstan, segera interrupt
-    if (dist < 4.0 || dist >= 15.0) {
+    extern int get_classified_distance_class(void);
+    if (get_classified_distance_class() != 2) { // 2: CLASS_WIDE_OPEN
         return true;
     }
     return false;
@@ -55,12 +50,9 @@ static bool interruptible_beep(int frekuensi, int durasi_ms)
     
     // Untuk nada yang berbunyi, kita periksa interupsi sebelum mulai
     for (int i = 0; i < siklus; i++) {
-        // Cek interupsi berkala setiap 50 siklus agar tidak terlalu membebani sensor
-        if (i % 50 == 0) {
-            if (should_interrupt()) {
-                gpio_set_level(BUZZER_PIN, 0); // Matikan buzzer
-                return true;
-            }
+        if (should_interrupt()) {
+            gpio_set_level(BUZZER_PIN, 0); // Matikan buzzer
+            return true;
         }
         gpio_set_level(BUZZER_PIN, 1);
         esp_rom_delay_us(periode / 2);
@@ -126,11 +118,10 @@ void buzzer_play_melody(void)
     }
 }
 
-// Cek apakah kondisi jarak sudah berpindah dari wilayah lampu kuning (15cm s.d 30cm)
 static bool should_interrupt_yellow(void)
 {
-    float dist = get_distance_cm();
-    if (dist < 15.0 || dist >= 30.0) {
+    extern int get_classified_distance_class(void);
+    if (get_classified_distance_class() != 1) { // 1: CLASS_SLIGHTLY_OPEN
         return true;
     }
     return false;
@@ -147,12 +138,9 @@ static bool interruptible_beep_yellow(int frekuensi, int durasi_ms)
     int siklus = (durasi_ms * 1000) / periode;
     
     for (int i = 0; i < siklus; i++) {
-        // Cek interupsi setiap 50 siklus
-        if (i % 50 == 0) {
-            if (should_interrupt_yellow()) {
-                gpio_set_level(BUZZER_PIN, 0); // Matikan buzzer
-                return true;
-            }
+        if (should_interrupt_yellow()) {
+            gpio_set_level(BUZZER_PIN, 0); // Matikan buzzer
+            return true;
         }
         gpio_set_level(BUZZER_PIN, 1);
         esp_rom_delay_us(periode / 2);

@@ -26,7 +26,7 @@ static adc_channel_t get_adc_channel(int gpio_num)
     }
 }
 
-void app_main(void)
+void water_sensor_main(void)
 {
     ESP_LOGI(TAG, "Memulai program deteksi air pada PIN D%d...", WATER_GPIO_PIN);
     

@@ -1,19 +1,15 @@
-# Build directories
+# Large build, dependency and cache directories
 build/
-latex/
-html/
-
-# ESP-IDF specific
-sdkconfig
-sdkconfig.old
-sdkconfig.defaults.esp32*
-dependencies.lock
-
-# VS Code / IDEs
-.vscode/
 .cache/
-.clangd/
+.dart_tool/
+node_modules/
 
-# System files
-.DS_Store
-Thumbs.db
+# Flutter/Android/iOS large binaries and build outputs
+*.apk
+*.ap_
+*.aab
+*.aar
+*.ipa
+*.jks
+*.keystore
+flutter_*.png

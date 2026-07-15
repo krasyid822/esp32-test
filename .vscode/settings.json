@@ -1,0 +1,8 @@
+{
+    "idf.currentSetup": "/opt/esp-idf",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/build",
+        "--query-driver=/home/rasyidk/.espressif/tools/**/bin/*gcc"
+    ]
+}

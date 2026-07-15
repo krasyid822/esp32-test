@@ -3,6 +3,11 @@
 
 #define BUZZER_PIN 25 // Pin D8 S pada carrier board
 
+// Threshold Jarak (dalam cm)
+#define DIST_TOUCH   5
+#define DIST_CLOSE   12
+#define DIST_MEDIUM  30
+
 // Inisialisasi pin buzzer
 void buzzer_init(void);
 

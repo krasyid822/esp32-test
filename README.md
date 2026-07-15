@@ -85,3 +85,16 @@ sudo chmod 666 /dev/ttyUSB0
 untuk permission akses serial
 
 komponen yang aktif adalah [ryg_lamp.c](file;file:///home/rasyidk/vscode/esp32-test/main/ryg_lamp.c) [buzzer.c](file;file:///home/rasyidk/vscode/esp32-test/main/buzzer.c) [water_sensor.c](file;file:///home/rasyidk/vscode/esp32-test/main/water_sensor.c) [hc_sr04_sensor.c](file;file:///home/rasyidk/vscode/esp32-test/main/hc_sr04_sensor.c) [mq_sensor.c](file;file:///home/rasyidk/vscode/esp32-test/main/mq_sensor.c) 
+
+Password Wi-Fi ESP32 Anda adalah:
+
+SSID (Nama Wi-Fi): ESP32_Dashboard_Net
+Password: password123
+
+algoritma ml atau ai apa yang bisa dimplementasikan kesini?
+
+fitor konversi otomatis mp3 ke synth piano yang bisa dimainkan buzer
+
+perlukah dipasang machine learning?
+
+tidakbisakah terapkan arsitektur bersih ke program espnya, saya lihat kebanyakan perubahan hanya satu file tunggal main.c

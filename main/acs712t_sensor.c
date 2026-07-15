@@ -27,7 +27,7 @@ static adc_channel_t get_adc_channel(int gpio_num)
     }
 }
 
-void app_main(void)
+void acs712t_sensor_main(void)
 {
     ESP_LOGI(TAG, "Memulai program sensor arus ACS712...");
     
