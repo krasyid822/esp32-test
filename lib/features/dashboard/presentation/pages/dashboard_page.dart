@@ -73,15 +73,14 @@ class _DashboardPageState extends State<DashboardPage> {
 
   Future<void> _pickAndConvertAudio() async {
     try {
-      final result = await FilePicker.platform.pickFiles(
+      final result = await FilePicker.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['wav', 'mp3', 'opus', 'ogg', 'm4a', 'aac', 'mid', 'midi'],
-        withData: true,
       );
 
-      if (result != null && result.files.first.bytes != null) {
-        final bytes = result.files.first.bytes!;
-        final String filename = result.files.first.name.toLowerCase();
+      if (result.isNotEmpty) {
+        final bytes = await result.first.readAsBytes();
+        final String filename = result.first.name.toLowerCase();
         
         setState(() {
           _isConvertingAudio = true;

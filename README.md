@@ -68,6 +68,26 @@ The pixel number indicates the pixel position in the LED strip. For a single LED
 
 For any technical queries, please open an [issue](https://github.com/espressif/esp-idf/issues) on GitHub. We will get back to you soon.
 
+# opencode session
+
+Session   Dart MCP server setup
+Continue  opencode -s ses_f943c5a1fffeqyhfRdX3ds35xN
+
+# run-esp.sh Usage:
+- ./run-esp.sh — build + flash + monitor (default)
+- ./run-esp.sh build — build only
+- ./run-esp.sh flash — build + flash
+- ./run-esp.sh monitor — serial monitor
+- ./run-esp.sh menuconfig — config menu
+
+# run-android.sh Usage:
+- ./run-android.sh — flutter run (debug, default)
+- ./run-android.sh run-remote — run with web-port flag
+- ./run-android.sh build — build release APK
+- ./run-android.sh build-debug — build debug APK
+- ./run-android.sh install — build release + install to connected device
+- ./run-android.sh logs — adb logcat filtered for Flutter
+
 # Catatan
 ```fish
 ctrl+]
