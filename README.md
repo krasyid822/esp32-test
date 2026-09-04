@@ -88,6 +88,10 @@ Continue  opencode -s ses_f943c5a1fffeqyhfRdX3ds35xN
 - ./run-android.sh install — build release + install to connected device
 - ./run-android.sh logs — adb logcat filtered for Flutter
 
+# for presentations
+
+scrcpy --new-display --start-app=com.example.esp32_test
+
 # Catatan
 ```fish
 ctrl+]
